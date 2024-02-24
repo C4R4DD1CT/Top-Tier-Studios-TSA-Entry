@@ -26,6 +26,17 @@ public partial class PlayerMovement : MonoBehaviour
         // Calculate movement direction
         moveDirection = (orientation.forward * verticalInput) + (orientation.right * horizontalInput);
 
+        // Slope behavior
+        if (OnSlope())
+        {
+            rb.AddForce(GetSlopeMoveDirection() * moveSpeed);
+            if (rb.velocity.y > 0)
+                rb.AddForce(Vector3.down * 10f, ForceMode.Force);
+        }
+
+        // Disable gravity while on a slope (If you're in the air you're not on a slope)
+        rb.useGravity = !OnSlope();
+
         // Do ground check and set drag as needed before adding force in movement direction
         if (moveState != MovementState.airborne)
         {
