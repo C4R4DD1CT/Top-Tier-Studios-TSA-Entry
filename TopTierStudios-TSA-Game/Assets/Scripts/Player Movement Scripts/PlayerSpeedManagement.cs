@@ -77,7 +77,7 @@ public partial class PlayerMovement : MonoBehaviour
                 rb.velocity = rb.velocity.normalized * moveSpeed;
         }
 
-        // Flat ground movement
+        // Flat ground/air movement
         else
         {
             // We don't need to work with the y-velocity here, jumps are jumps

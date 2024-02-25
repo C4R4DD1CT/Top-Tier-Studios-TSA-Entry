@@ -15,6 +15,7 @@ public partial class PlayerMovement : MonoBehaviour
     // Player speed variables
     private float moveSpeed;
     private float acceleration;
+    [Header("Additional Movement Characteristics")]
     public float airMultiplier;
     public float groundDrag;
 
@@ -27,11 +28,14 @@ public partial class PlayerMovement : MonoBehaviour
         moveDirection = (orientation.forward * verticalInput) + (orientation.right * horizontalInput);
 
         // Slope behavior
-        if (OnSlope())
+        if (OnSlope() && !exitingSlope)
         {
-            rb.AddForce(GetSlopeMoveDirection() * moveSpeed);
+            rb.AddForce(GetSlopeMoveDirection() * acceleration * moveSpeed, ForceMode.Force);
+
+            // Keep player stuck to slope
             if (rb.velocity.y > 0)
-                rb.AddForce(Vector3.down * 10f, ForceMode.Force);
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+
         }
 
         // Disable gravity while on a slope (If you're in the air you're not on a slope)

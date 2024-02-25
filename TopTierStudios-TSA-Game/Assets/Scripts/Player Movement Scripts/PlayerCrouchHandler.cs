@@ -11,6 +11,7 @@ using UnityEngine;
 public partial class PlayerMovement : MonoBehaviour
 {
     // Crouch variables
+    [Header("Crouching")]
     public float crouchYScale;
     public float startYScale;
 

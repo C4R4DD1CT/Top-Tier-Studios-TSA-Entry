@@ -13,13 +13,14 @@ using UnityEngine;
 public partial class PlayerMovement : MonoBehaviour
 {
     // Connect to current orientation and rigidbody
+    [Header("Object Connections")]
     public Transform orientation;
     public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        readyToJump = true;
+        ResetJump();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         startYScale = transform.localScale.y;

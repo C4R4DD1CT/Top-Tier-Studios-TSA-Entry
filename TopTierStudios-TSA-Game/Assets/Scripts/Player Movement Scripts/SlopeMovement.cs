@@ -11,13 +11,14 @@ using UnityEngine;
 public partial class PlayerMovement : MonoBehaviour
 {
     [Header("Slope Movement")]
-    public RaycastHit slopeHit;
     public float maxSlopeAngle;
+    public RaycastHit slopeHit;
+    private bool exitingSlope;
 
     // Checks to see if the player is on a slope
     private bool OnSlope()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.2f))
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
             // There is a surface underneath the player
             float slopeAngle = Vector3.Angle(Vector3.up, slopeHit.normal);
