@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 
 /// This part of the PlayerMovement class controls the player's ability to wallrun.
-/// _ walls are wallrunnable. Scalable walls are also wallrunnable.
+/// Some walls are wallrunnable. Scalable walls are also wallrunnable.
 /// 
 /// </summary>
 public partial class PlayerMovement : MonoBehaviour
