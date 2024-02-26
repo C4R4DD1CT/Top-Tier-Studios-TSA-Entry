@@ -826,7 +826,6 @@ GameObject:
   - component: {fileID: 1528362261}
   - component: {fileID: 1528362260}
   - component: {fileID: 1528362262}
-  - component: {fileID: 1528362263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -908,25 +907,3 @@ MonoBehaviour:
   sprintAccel: 65
   moveState: 0
   maxSlopeAngle: 45
---- !u!114 &1528362263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528362259}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba83d66cd9f9ab7449c48986ad233f0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orientation: {fileID: 550891210}
-  rb: {fileID: 0}
-  climbable:
-    serializedVersion: 2
-    m_Bits: 4096
-  climbSpeed: 4
-  detectionLength: 0.7
-  sphereCastRadius: 0.25
-  maxWallLookAngle: 30
-  curvedWallLookAngle: 20
