@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f5adf527a1f59634bbe54cab8745f3cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -212,14 +212,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412785003}
-  m_LocalRotation: {x: -0.18506816, y: 0.18506815, z: 0.6824587, w: 0.68245864}
-  m_LocalPosition: {x: 6.99, y: 4.6604, z: 15.8}
+  m_LocalRotation: {x: -0.14435896, y: 0.14435896, z: 0.69221425, w: 0.69221425}
+  m_LocalPosition: {x: 6.99, y: 1.9, z: 15.8}
   m_LocalScale: {x: 1, y: 9.773567, z: 23.0401}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: -30.345, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: -23.56, y: 0, z: 90}
 --- !u!1 &550891209
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,8 +684,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1a157daae73b746bc2237cd788ffc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 400
-  sensY: 400
+  sensX: 600
+  sensY: 600
   orientation: {fileID: 550891210}
 --- !u!1 &1180059300
 GameObject:
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 1180059303}
   - component: {fileID: 1180059302}
   - component: {fileID: 1180059301}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Some Random Streetlamp Or Something
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f5adf527a1f59634bbe54cab8745f3cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -777,8 +777,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180059300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.94, y: 4.6604, z: -7.3201}
-  m_LocalScale: {x: 1, y: 9.773567, z: 23.0401}
+  m_LocalPosition: {x: -19.9, y: 4.6604, z: -7.3201}
+  m_LocalScale: {x: 29.805843, y: 9.773567, z: 23.0401}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -826,6 +826,7 @@ GameObject:
   - component: {fileID: 1528362261}
   - component: {fileID: 1528362260}
   - component: {fileID: 1528362262}
+  - component: {fileID: 1528362263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -857,7 +858,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528362259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2947576, y: 1.7024953, z: -0.049799502}
+  m_LocalPosition: {x: 3.82, y: 1.7024953, z: -0.049799502}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -879,6 +880,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5871a45f50dafe44ba7db74cb0d543e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  climbSpeed: 4
+  climbable:
+    serializedVersion: 2
+    m_Bits: 4096
+  detectionLength: 0.7
+  sphereCastRadius: 0.25
+  maxWallLookAngle: 30
+  curvedWallLookAngle: 20
   airMultiplier: 0.2
   groundDrag: 4
   playerHeight: 2
@@ -899,3 +908,25 @@ MonoBehaviour:
   sprintAccel: 65
   moveState: 0
   maxSlopeAngle: 45
+--- !u!114 &1528362263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528362259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba83d66cd9f9ab7449c48986ad233f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 550891210}
+  rb: {fileID: 0}
+  climbable:
+    serializedVersion: 2
+    m_Bits: 4096
+  climbSpeed: 4
+  detectionLength: 0.7
+  sphereCastRadius: 0.25
+  maxWallLookAngle: 30
+  curvedWallLookAngle: 20
