@@ -30,6 +30,7 @@ public partial class PlayerMovement : MonoBehaviour
         walking,
         sprinting,
         crouching,
+        climbing,
         airborne
     }
 
@@ -52,6 +53,13 @@ public partial class PlayerMovement : MonoBehaviour
                 moveState = MovementState.sprinting;
                 moveSpeed = sprintSpeed;
                 acceleration = sprintAccel;
+            }
+
+            // Climb mode
+            else if (WallCheck() && Input.GetAxisRaw("Vertical") > 0)
+            {
+                moveState = MovementState.climbing;
+                moveSpeed = climbSpeed;
             }
 
             // Walk mode

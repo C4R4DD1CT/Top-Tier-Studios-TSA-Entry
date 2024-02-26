@@ -13,7 +13,7 @@ using UnityEngine;
 public partial class PlayerMovement : MonoBehaviour
 {
     // Connect to current orientation and rigidbody
-    [Header("Object Connections")]
+    [Header("Object References")]
     public Transform orientation;
     public Rigidbody rb;
 
@@ -37,6 +37,7 @@ public partial class PlayerMovement : MonoBehaviour
 
         // Additional state intricacies
         CrouchHandler();
+        CheckForClimb();
     }
 
     // FixedUpdate is called on set intervals
