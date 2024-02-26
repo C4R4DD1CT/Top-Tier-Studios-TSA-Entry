@@ -21,13 +21,14 @@ public partial class PlayerMovement : MonoBehaviour
     [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
-    bool readyToJump;
+    private bool readyToJump;
+    private bool grounded;
     
 
     // Ground Check
-    private bool GroundCheck()
+    private void GroundCheck()
     {
-        return Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f);
     }
 
     // Jump function

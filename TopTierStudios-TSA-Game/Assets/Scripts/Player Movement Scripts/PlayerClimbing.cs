@@ -25,10 +25,13 @@ public partial class PlayerMovement : MonoBehaviour
     private float wallLookAngle;
 
     private RaycastHit wallHit;
+    private bool wallFront;
 
-    // Control climbing state
+    // Player climbing
     private void CheckForClimb()
     {
+        FrontWallCheck();
+
         // Check to see if the player can and wants to climb
         if (moveState == MovementState.climbing)
         {
@@ -41,11 +44,10 @@ public partial class PlayerMovement : MonoBehaviour
     }
 
     // Check for walls
-    private bool WallCheck()
+    private void FrontWallCheck()
     {
-        bool wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out wallHit, detectionLength, climbable);
+        wallFront = Physics.SphereCast(transform.position, sphereCastRadius, orientation.forward, out wallHit, detectionLength, climbable);
         wallLookAngle = Vector3.Angle(orientation.forward, -wallHit.normal);
-        return wallFront;
     }
 
     // Set velocity for climbing

@@ -26,6 +26,7 @@ public partial class PlayerMovement : MonoBehaviour
     {
         // Calculate movement direction
         moveDirection = (orientation.forward * verticalInput) + (orientation.right * horizontalInput);
+        //Debug.Log(moveDirection);
 
         // Slope behavior
         if (OnSlope() && !exitingSlope)
@@ -56,6 +57,31 @@ public partial class PlayerMovement : MonoBehaviour
         
         // Keep velocity within intended limit
         SpeedControl();
-        Debug.Log(rb.velocity.magnitude);
+        //Debug.Log(rb.velocity.magnitude);
+    }
+
+    // Player can't break their speed limit
+    private void SpeedControl()
+    {
+        // Slope movement
+        if (OnSlope())
+        {
+            if (rb.velocity.magnitude > moveSpeed)
+                rb.velocity = rb.velocity.normalized * moveSpeed;
+        }
+
+        // Flat ground/air movement
+        else
+        {
+            // We don't need to work with the y-velocity here, jumps are jumps
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            // Check to see if velocity needs limiting and limit if necessary
+            if (flatVel.magnitude > moveSpeed)
+            {
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
+        }
     }
 }

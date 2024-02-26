@@ -18,7 +18,7 @@ public partial class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         ResetJump();
         rb = GetComponent<Rigidbody>();
@@ -27,7 +27,7 @@ public partial class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // Get the player input
         GetPlayerInput();
@@ -38,6 +38,7 @@ public partial class PlayerMovement : MonoBehaviour
         // Additional state intricacies
         CrouchHandler();
         CheckForClimb();
+        WallrunState();
     }
 
     // FixedUpdate is called on set intervals

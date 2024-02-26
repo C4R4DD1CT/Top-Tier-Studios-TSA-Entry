@@ -4,11 +4,10 @@ using UnityEngine;
 
 /// <summary>
 /// 
-/// This part of the PlayerMovement class controls the speed of the player.
-/// It checks to see if the player wants to sprint, crouch, or walk.
-/// This is stored in an enum holding the state of movement.
-/// This script also limits the player's speed at any given moment.
-/// It also conveniently performs the ground check as well.
+/// This part of the PlayerMovement class checks the movement state of the player.
+/// Possible movement states include walking, sprinting, crouching, climbing, wallrunning, and airborne.
+/// This is stored in an enum holding the state of movement, which can be accessed elsewhere in the class.
+/// It also conveniently performs the ground check.
 /// 
 /// </summary>
 public partial class PlayerMovement : MonoBehaviour
@@ -31,13 +30,15 @@ public partial class PlayerMovement : MonoBehaviour
         sprinting,
         crouching,
         climbing,
+        wallrunning,
         airborne
     }
 
     // Handle current state of player movement
     private void StateHandler()
     {
-        if (GroundCheck())
+        GroundCheck();
+        if (grounded)
         {
             // Crouch mode
             if (Input.GetAxisRaw("Crouch") != 0)
@@ -64,39 +65,23 @@ public partial class PlayerMovement : MonoBehaviour
             }
         }
 
+        // Wallrun mode
+        else if ((wallLeft || wallRight) && verticalInput != 0)
+        {
+            moveState = MovementState.wallrunning;
+            moveSpeed = wallrunSpeed;
+        }
+
         // Air mode
         else moveState = MovementState.airborne;
 
         // Climb mode (needs to be checked regardless of state of ground check)
-        if (WallCheck() && Input.GetAxisRaw("Vertical") > 0)
+        if (wallFront && verticalInput > 0)
         {
             moveState = MovementState.climbing;
             moveSpeed = climbSpeed;
         }
-    }
 
-    // Player can't break their speed limit
-    private void SpeedControl()
-    {
-        // Slope movement
-        if (OnSlope())
-        {
-            if (rb.velocity.magnitude > moveSpeed)
-                rb.velocity = rb.velocity.normalized * moveSpeed;
-        }
-
-        // Flat ground/air movement
-        else
-        {
-            // We don't need to work with the y-velocity here, jumps are jumps
-            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-            // Check to see if velocity needs limiting and limit if necessary
-            if (flatVel.magnitude > moveSpeed)
-            {
-                Vector3 limitedVel = flatVel.normalized * moveSpeed;
-                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-            }
-        }
+        //Debug.Log(moveState);
     }
 }
