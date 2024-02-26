@@ -55,13 +55,6 @@ public partial class PlayerMovement : MonoBehaviour
                 acceleration = sprintAccel;
             }
 
-            // Climb mode
-            else if (WallCheck() && Input.GetAxisRaw("Vertical") > 0)
-            {
-                moveState = MovementState.climbing;
-                moveSpeed = climbSpeed;
-            }
-
             // Walk mode
             else
             {
@@ -73,6 +66,13 @@ public partial class PlayerMovement : MonoBehaviour
 
         // Air mode
         else moveState = MovementState.airborne;
+
+        // Climb mode (needs to be checked regardless of state of ground check)
+        if (WallCheck() && Input.GetAxisRaw("Vertical") > 0)
+        {
+            moveState = MovementState.climbing;
+            moveSpeed = climbSpeed;
+        }
     }
 
     // Player can't break their speed limit
