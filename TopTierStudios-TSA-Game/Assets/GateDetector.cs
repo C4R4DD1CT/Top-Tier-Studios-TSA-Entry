@@ -7,8 +7,10 @@ public class GateDetector : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Object_Picker picker;
     [SerializeField] Transform parentObj;
-    private bool unlocked = false;
+    private bool keyFragmentsFound = false;
     [SerializeField] float gate_descent_speed = 0.2f;
+    public bool solvedCode = false;
+    [SerializeField] float range = 2.5f;
     void Start()
     {
         
@@ -17,13 +19,23 @@ public class GateDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(transform.position, picker.transform.position) < 1.5f || unlocked)
+        if(!keyFragmentsFound && Vector3.Distance(transform.position, picker.transform.position) <= range)
         {
             if(picker.current_keys >= picker.MAX_KEYS)
             {
-                parentObj.position -= new Vector3(0, gate_descent_speed * Time.deltaTime, 0);
-                unlocked = true;
+                
+                keyFragmentsFound = true;
             }
         }
+
+        if (keyFragmentsFound && solvedCode)
+        {
+            parentObj.position -= new Vector3(0, gate_descent_speed * Time.deltaTime, 0);
+        }
+    }
+
+    public void OpenGate()
+    {
+        
     }
 }

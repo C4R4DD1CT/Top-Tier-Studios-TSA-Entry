@@ -21,11 +21,11 @@ public class Object_Picker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (checking_for_key_frags)
+        RaycastHit ray;
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Physics.Raycast(camera.transform.position, camera.forward, out ray, object_pickup_distance))
         {
-            RaycastHit ray;
-            if(Input.GetKey(KeyCode.Mouse0) && Physics.Raycast(camera.transform.position, camera.forward, out ray, object_pickup_distance))
+           
+            if(checking_for_key_frags)
             {
                 if(ray.transform.tag == "key")
                 {
@@ -43,9 +43,14 @@ public class Object_Picker : MonoBehaviour
 
                 //Once all 4 keys are gained, put a message saying "Recieved 4 keys, Go to the gate"
             }
+            
+            if(ray.transform.tag == "code")
             {
-
+                print("Clicked on a code block");
+                ray.transform.GetComponent<CodeState>().OnCodeChange();
             }
+
+            
         }
         
     }
