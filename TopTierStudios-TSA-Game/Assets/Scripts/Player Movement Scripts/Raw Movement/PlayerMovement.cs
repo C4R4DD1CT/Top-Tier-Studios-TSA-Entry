@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 
@@ -12,10 +13,12 @@ using UnityEngine;
 /// </summary>
 public partial class PlayerMovement : MonoBehaviour
 {
-    // Connect to current orientation and rigidbody
+    // Connect to current orientation, rigidbody, and camera
     [Header("Object References")]
     public Transform orientation;
     public Rigidbody rb;
+    public int deathDist;
+    //public Transform playerKaCamera;
 
     // Start is called before the first frame update
     private void Start()
@@ -24,11 +27,18 @@ public partial class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         startYScale = transform.localScale.y;
+
+        // Subscribe to goal event
+        GameEvents.current.OnLevelWon += LevelWonCommands;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        // Check to see if player has fallen out of scene and reset scene if so
+        if (transform.position.y < deathDist)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         // Get the player input
         GetPlayerInput();
 
@@ -46,5 +56,13 @@ public partial class PlayerMovement : MonoBehaviour
     {
         // Move the player
         MovePlayer();
+    }
+
+    // Happens on Level Won
+    private void LevelWonCommands()
+    {
+        // Shoot player into sky after Level 2 finishes
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Level 2"))
+            rb.AddForce(new Vector3(0f, 80f, 0f), ForceMode.Impulse);
     }
 }

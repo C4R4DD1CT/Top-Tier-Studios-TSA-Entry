@@ -66,7 +66,7 @@ public partial class PlayerMovement : MonoBehaviour
         }
 
         // Wallrun mode
-        else if ((wallLeft || wallRight) && verticalInput != 0)
+        else if ((wallLeft || wallRight) && verticalInput > 0)
         {
             moveState = MovementState.wallrunning;
             moveSpeed = wallrunSpeed;
