@@ -58,4 +58,10 @@ public class ButtonMethods : MonoBehaviour
     {
         GameEvents.current.PauseToggle();
     }
+
+    // Toggle the music
+    public void ToggleMusic()
+    {
+        GameEvents.current.MusicToggle();
+    }
 }
