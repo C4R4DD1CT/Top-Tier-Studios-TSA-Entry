@@ -7,25 +7,13 @@ public class ChangeScenes : MonoBehaviour
 {
 
     bool invoked = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider collision)
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Player" && !invoked)
+        if(collision.CompareTag("Player") && !invoked)
         {
             invoked = true;
             Invoke("ChangeScene", 1.5f);
-
         }
     }
 
