@@ -166,7 +166,7 @@ Transform:
   - {fileID: 2130396965}
   - {fileID: 505718865}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208036266
 GameObject:
@@ -1605,7 +1605,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &736568693
 PrefabInstance:
@@ -2078,7 +2078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3474348468557245528, guid: dcfdc2e6107db0549a86e7444f99c537, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3474348468557245528, guid: dcfdc2e6107db0549a86e7444f99c537, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2826,8 +2826,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 104, y: -80.99988}
-  m_SizeDelta: {x: 158.84937, y: 130.0621}
+  m_AnchoredPosition: {x: 104, y: -99.11898}
+  m_SizeDelta: {x: 158.8494, y: 186.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032875104
 MonoBehaviour:
@@ -2862,8 +2862,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Remember, once you open the gate, step on the glittering platform to go
+  m_Text: 'Remember, once you open the gate, step on the glittering platform to go
     to the next level.
+
+
+    Extra Instruction: To pick up keys, you have to click
+    on them with your cursor.'
 --- !u!222 &2032875105
 CanvasRenderer:
   m_ObjectHideFlags: 0
