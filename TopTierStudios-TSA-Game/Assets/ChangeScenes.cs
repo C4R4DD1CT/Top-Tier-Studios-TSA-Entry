@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScenes : MonoBehaviour
 {
+
+    bool invoked = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +21,16 @@ public class ChangeScenes : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && !invoked)
         {
+            invoked = true;
             Invoke("ChangeScene", 1.5f);
+
         }
     }
 
     private void ChangeScene()
     {
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
