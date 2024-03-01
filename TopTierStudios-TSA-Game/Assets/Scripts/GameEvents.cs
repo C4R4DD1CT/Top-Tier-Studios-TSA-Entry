@@ -7,6 +7,7 @@ using UnityEngine;
 /// <summary>
 /// 
 /// Ticking StackOverflowError time bomb will fix later
+/// I fixed it
 /// 
 /// </summary>
 public class GameEvents : MonoBehaviour
@@ -27,7 +28,7 @@ public class GameEvents : MonoBehaviour
     public void WallrunEnter()
     {
         if (OnWallrunEnter != null)
-            WallrunEnter();
+            OnWallrunEnter();
     }
 
     // Event is broadcasted whenever the player exits a wallrun
@@ -35,7 +36,7 @@ public class GameEvents : MonoBehaviour
     public void WallrunExit()
     {
         if (OnWallrunExit != null)
-            WallrunExit();
+            OnWallrunExit();
     }
 
     // Event is broadcasted whenever the player begins to climb
@@ -43,7 +44,7 @@ public class GameEvents : MonoBehaviour
     public void ClimbEnter()
     {
         if (OnClimbEnter != null)
-            ClimbEnter();
+            OnClimbEnter();
     }
 
     // Event is broadcasted whenever the player exits climb
@@ -51,7 +52,15 @@ public class GameEvents : MonoBehaviour
     public void ClimbExit()
     {
         if (OnClimbExit != null)
-            ClimbExit();
+            OnClimbExit();
+    }
+
+    // Event is broadcasted when pause is toggled
+    public event Action OnPauseToggle;
+    public void PauseToggle()
+    {
+        if (OnPauseToggle != null)
+            OnPauseToggle();
     }
 
     /*  * Game Over Events *   */
@@ -62,6 +71,6 @@ public class GameEvents : MonoBehaviour
     {
         Debug.Log("You won!");
         if (OnLevelWon != null)
-            LevelWon();
+            OnLevelWon();
     }
 }
