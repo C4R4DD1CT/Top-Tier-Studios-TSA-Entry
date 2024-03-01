@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -11,6 +12,14 @@ using UnityEngine;
 public class MusicPlayerPersistance : MonoBehaviour
 {
     public AudioSource music;
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Dragon Scene"))
+        {
+            Destroy(transform.gameObject);
+        }
+    }
 
     // Don't destroy the object on new load and subscribe to game events
     void Start()
