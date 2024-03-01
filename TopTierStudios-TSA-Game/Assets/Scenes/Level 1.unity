@@ -166,7 +166,7 @@ Transform:
   - {fileID: 2130396965}
   - {fileID: 505718865}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208036266
 GameObject:
@@ -2558,7 +2558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
       propertyPath: specialFOV
-      value: 90
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
       propertyPath: orientation
@@ -2568,6 +2568,10 @@ PrefabInstance:
       propertyPath: playerKaCamera
       value: 
       objectReference: {fileID: 1625244997}
+    - target: {fileID: 4156732067645132751, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
+      propertyPath: field of view
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
 --- !u!1001 &1589336041
