@@ -352,11 +352,11 @@ PrefabInstance:
       objectReference: {fileID: 892296236}
     - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
       propertyPath: sensX
-      value: 500
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
       propertyPath: sensY
-      value: 500
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
       propertyPath: zoomTime
