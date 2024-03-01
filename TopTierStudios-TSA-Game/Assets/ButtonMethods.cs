@@ -40,4 +40,10 @@ public class ButtonMethods : MonoBehaviour
     {
         SceneManager.LoadScene("Advanced Movement");
     }
+
+    // Loads Settings menu
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
 }
