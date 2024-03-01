@@ -78,7 +78,7 @@ public partial class PlayerMovement : MonoBehaviour
         // Air mode
         else
         {
-            //if (moveState == MovementState.sprinting) GameEvents.current.SprintExit();
+            if (moveState == MovementState.sprinting) GameEvents.current.SprintExit();
             moveState = MovementState.airborne;
         }
 
