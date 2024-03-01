@@ -930,8 +930,11 @@ MonoBehaviour:
     m_Bits: 14336
   wallrunSpeed: 15
   wallrunAccel: 20
+  wallJumpUpForce: 10
+  wallJumpOutForce: 7
   maxWallrunTime: 0
   minJumpHeight: 0
+  exitingWallTime: 0.2
   airMultiplier: 0.2
   groundDrag: 4
   playerHeight: 2

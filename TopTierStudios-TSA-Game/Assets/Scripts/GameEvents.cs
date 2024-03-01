@@ -58,6 +58,22 @@ public class GameEvents : MonoBehaviour
             OnClimbExit();
     }
 
+    // Event is broadcasted whenever the player enters a sprint
+    public event Action OnSprintEnter;
+    public void SprintEnter()
+    {
+        if (OnSprintEnter != null)
+            OnSprintEnter();
+    }
+
+    // Event is broadcasted whenever the player exits a sprint (without entering a climb or wallrun)
+    public event Action OnSprintExit;
+    public void SprintExit()
+    {
+        if (OnSprintExit != null)
+            OnSprintExit();
+    }
+
     // Event is broadcasted when pause is toggled
     public event Action OnPauseToggle;
     public void PauseToggle()

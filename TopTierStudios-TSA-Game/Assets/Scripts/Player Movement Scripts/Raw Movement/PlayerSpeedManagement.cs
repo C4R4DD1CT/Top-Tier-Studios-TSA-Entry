@@ -43,6 +43,7 @@ public partial class PlayerMovement : MonoBehaviour
             // Crouch mode
             if (Input.GetAxisRaw("Crouch") != 0)
             {
+                if (moveState == MovementState.sprinting) GameEvents.current.SprintExit();
                 moveState = MovementState.crouching;
                 moveSpeed = crouchSpeed;
                 acceleration = crouchAccel;
@@ -51,6 +52,7 @@ public partial class PlayerMovement : MonoBehaviour
             // Sprint mode
             else if (Input.GetAxisRaw("Sprint") != 0)
             {
+                if (moveState != MovementState.sprinting) GameEvents.current.SprintEnter();
                 moveState = MovementState.sprinting;
                 moveSpeed = sprintSpeed;
                 acceleration = sprintAccel;
@@ -59,6 +61,7 @@ public partial class PlayerMovement : MonoBehaviour
             // Walk mode
             else
             {
+                if (moveState == MovementState.sprinting) GameEvents.current.SprintExit();
                 moveState = MovementState.walking;
                 moveSpeed = walkSpeed;
                 acceleration = walkAccel;
@@ -66,14 +69,18 @@ public partial class PlayerMovement : MonoBehaviour
         }
 
         // Wallrun mode
-        else if ((wallLeft || wallRight) && verticalInput > 0)
+        else if ((wallLeft || wallRight) && verticalInput > 0 && !exitingWall)
         {
             moveState = MovementState.wallrunning;
             moveSpeed = wallrunSpeed;
         }
 
         // Air mode
-        else moveState = MovementState.airborne;
+        else
+        {
+            //if (moveState == MovementState.sprinting) GameEvents.current.SprintExit();
+            moveState = MovementState.airborne;
+        }
 
         // Climb mode (needs to be checked regardless of state of ground check)
         if (wallFront && verticalInput > 0)

@@ -15,12 +15,17 @@ public partial class PlayerMovement : MonoBehaviour
     public LayerMask wallrunnable;
     public float wallrunSpeed;
     public float wallrunAccel;
+    public float wallJumpUpForce;
+    public float wallJumpOutForce;
     public float maxWallrunTime;
     private float wallrunTimer;
     private bool wallrunning;
 
     [Header("Detection")]
     public float minJumpHeight;
+    public float exitingWallTime;
+    private float exitingWallTimer;
+    private bool exitingWall;
 
     private RaycastHit hitLeft;
     private RaycastHit hitRight;
@@ -45,6 +50,8 @@ public partial class PlayerMovement : MonoBehaviour
             if (!wallrunning)
                 StartWallrun();
         }
+
+        // Stop wallrunning if the player doesn't want to wallrun
         else if (wallrunning) StopWallrun();
 
         // If the player can and wants to wallrun let them wallrun
@@ -68,9 +75,6 @@ public partial class PlayerMovement : MonoBehaviour
         // Add force for wallrunning
         rb.AddForce(wallForward * wallrunAccel, ForceMode.Force);
 
-        // Add force to let player wallrun upward
-        //rb.AddForce(new Vector3(0f, -playerKaCamera.rotation.x, 0f).normalized * wallrunAccel / 3, ForceMode.Force);
-
         // Stick player to wall
         if (!(wallLeft && horizontalInput > 0) && !(wallRight && horizontalInput < 0))
             rb.AddForce(-wallNormal * 100f, ForceMode.Force);
@@ -82,23 +86,24 @@ public partial class PlayerMovement : MonoBehaviour
         // Find outward direction relative to wall
         Vector3 wallNormal = wallRight ? hitRight.normal : hitLeft.normal;
 
-        // Re-enable gravity
-        rb.useGravity = true;
+        // Determine force to use
+        Vector3 forceToApply = transform.up * wallJumpUpForce + wallNormal * wallJumpOutForce;
 
-        // Add jump force
-        rb.AddForce((wallNormal * 2f + transform.up).normalized * jumpForce * 2f, ForceMode.Impulse);
+        // Apply force
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(forceToApply, ForceMode.Force);
     }
 
     // Start and stop wallruns
     private void StartWallrun()
     {
         wallrunning = true;
-        //GameEvents.current.WallrunEnter();
+        GameEvents.current.WallrunEnter();
     }
     private void StopWallrun()
     {
         wallrunning = false;
         //rb.AddForce(-rb.velocity / 2, ForceMode.Impulse);
-        //GameEvents.current.WallrunExit();
+        GameEvents.current.WallrunExit();
     }
 }

@@ -60,11 +60,11 @@ public partial class PlayerMovement : MonoBehaviour
     private void StartClimbing()
     {
         climbing = true;
-        //GameEvents.current.ClimbEnter();
+        GameEvents.current.ClimbEnter();
     }
     private void StopClimbing()
     {
         climbing = false;
-        //GameEvents.current.ClimbExit();
+        GameEvents.current.ClimbExit();
     }
 }

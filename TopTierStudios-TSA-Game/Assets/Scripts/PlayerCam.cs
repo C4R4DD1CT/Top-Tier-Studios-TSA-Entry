@@ -14,7 +14,7 @@ public class PlayerCam : MonoBehaviour
     [Header("Camera Controls")]
     public float sensX;
     public float sensY;
-    //public float zoomTime;
+    public float zoomTime;
     public float specialFOV;
     private float standardFOV;
     public Transform orientation;
@@ -32,8 +32,10 @@ public class PlayerCam : MonoBehaviour
         // Subscribe to game events
         GameEvents.current.OnWallrunEnter += specialFOVSwitch;
         GameEvents.current.OnClimbEnter += specialFOVSwitch;
+        GameEvents.current.OnSprintEnter += specialFOVSwitch;
         GameEvents.current.OnClimbExit += standardFOVSwitch;
         GameEvents.current.OnWallrunExit += standardFOVSwitch;
+        GameEvents.current.OnSprintExit += standardFOVSwitch;
     }
 
     // Unsubscribe from game events if disabled
@@ -41,8 +43,10 @@ public class PlayerCam : MonoBehaviour
     {
         GameEvents.current.OnWallrunEnter -= specialFOVSwitch;
         GameEvents.current.OnClimbEnter -= specialFOVSwitch;
+        GameEvents.current.OnSprintEnter -= specialFOVSwitch;
         GameEvents.current.OnClimbExit -= standardFOVSwitch;
         GameEvents.current.OnWallrunExit -= standardFOVSwitch;
+        GameEvents.current.OnSprintExit += standardFOVSwitch;
     }
 
     // Update is called once per frame
@@ -71,12 +75,12 @@ public class PlayerCam : MonoBehaviour
     // Switches to special FOV
     private void specialFOVSwitch()
     {
-        playerKaCamera.fieldOfView = specialFOV;
+        playerKaCamera.fieldOfView = Mathf.Lerp(playerKaCamera.fieldOfView, specialFOV, zoomTime);
     }
 
     // Switches to regular FOV
     private void standardFOVSwitch()
     {
-        playerKaCamera.fieldOfView = standardFOV;
+        playerKaCamera.fieldOfView = Mathf.Lerp(playerKaCamera.fieldOfView, standardFOV, zoomTime);
     }
 }
