@@ -179,8 +179,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter a code by pressing on the buttons above. They will change colors
+  m_text: 'Enter a code by pressing on the buttons above. They will change colors
     as you click them. Find the correct color combo.
+
+
+    Hint: The code contains
+    1 red, 2 yellow, and 1 blue'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -685,6 +689,7 @@ MonoBehaviour:
   - {fileID: 914053000186273315}
   gateDetector: {fileID: 0}
   text: {fileID: 914052998804486148}
+  hint: 'Hint: The code contains 1 red, 2 yellow, and 1 blue'
 --- !u!1 &914052999938907762
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +753,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e94c7625cd2e80d4e8fd19b24fc89d93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1103,7 +1108,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e94c7625cd2e80d4e8fd19b24fc89d93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
