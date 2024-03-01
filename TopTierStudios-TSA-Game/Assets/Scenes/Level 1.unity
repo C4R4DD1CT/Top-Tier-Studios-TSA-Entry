@@ -2102,7 +2102,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5414431567302431033, guid: 8500faf7e07789241b7047253ae1576d, type: 3}
       propertyPath: range
-      value: 15
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5414431567302431033, guid: 8500faf7e07789241b7047253ae1576d, type: 3}
       propertyPath: picker
@@ -2706,6 +2706,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3983782659733812612, guid: 3a861d50c7c3e4846957fd9248538c83, type: 3}
+      propertyPath: m_Size.z
+      value: 145.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983782659733812612, guid: 3a861d50c7c3e4846957fd9248538c83, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
@@ -2714,8 +2718,16 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3983782659733812614, guid: 3a861d50c7c3e4846957fd9248538c83, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 134.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983782659733812614, guid: 3a861d50c7c3e4846957fd9248538c83, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 969.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 3983782659733812614, guid: 3a861d50c7c3e4846957fd9248538c83, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.2
+      value: -75.9
       objectReference: {fileID: 0}
     - target: {fileID: 3983782659733812614, guid: 3a861d50c7c3e4846957fd9248538c83, type: 3}
       propertyPath: m_LocalPosition.y
