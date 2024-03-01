@@ -17,11 +17,12 @@ public class ChangeScenes : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            Invoke("ChangeScene", 1.5f);
+            GameEvents.current.LevelWon();
+            Invoke(nameof(ChangeScene), 1.5f);
         }
     }
 

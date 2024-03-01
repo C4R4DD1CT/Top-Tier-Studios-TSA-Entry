@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8954579727377444910}
   m_Layer: 9
   m_Name: Player Object
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,6 +179,10 @@ MonoBehaviour:
   object_pickup_distance: 7
   camera: {fileID: 0}
   key_frag_text: {fileID: 0}
+  objective: 'Objective: Find all the keys, and enter the right passcode to open
+    the gate.
+
+'
 --- !u!1 &8954579728749544659
 GameObject:
   m_ObjectHideFlags: 0
