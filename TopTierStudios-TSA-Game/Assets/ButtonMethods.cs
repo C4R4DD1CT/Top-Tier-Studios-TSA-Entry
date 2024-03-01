@@ -46,4 +46,10 @@ public class ButtonMethods : MonoBehaviour
     {
         SceneManager.LoadScene("Settings");
     }
+
+    // Resume game
+    public void Unpause()
+    {
+        GameEvents.current.PauseToggle();
+    }
 }
