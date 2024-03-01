@@ -63,6 +63,14 @@ public class GameEvents : MonoBehaviour
             OnPauseToggle();
     }
 
+    // Event is broadcasted when music is toggled
+    public event Action OnMusicToggle;
+    public void MusicToggle()
+    {
+        if (OnMusicToggle != null)
+            OnMusicToggle();
+    }
+
     /*  * Game Over Events *   */
 
     // Event is broadcasted whenever the player wins

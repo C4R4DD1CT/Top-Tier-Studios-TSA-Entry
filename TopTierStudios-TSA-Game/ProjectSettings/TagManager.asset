@@ -6,6 +6,7 @@ TagManager:
   tags:
   - key
   - code
+  - Music Player
   layers:
   - Default
   - TransparentFX
