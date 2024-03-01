@@ -15,6 +15,9 @@ public class MusicPlayerPersistance : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        // Subscribe to the new GameEvents thing
+        GameEvents.current.OnMusicToggle += ToggleMusic;
+
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Dragon Scene"))
         {
             Destroy(transform.gameObject);
@@ -22,7 +25,7 @@ public class MusicPlayerPersistance : MonoBehaviour
     }
 
     // Don't destroy the object on new load and subscribe to game events
-    void Start()
+    void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
 
@@ -33,8 +36,14 @@ public class MusicPlayerPersistance : MonoBehaviour
             Destroy(transform.gameObject);
     }
 
-    private void ToggleMusic()
+    public void ToggleMusic()
     {
         music.enabled = !music.enabled;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.current.OnMusicToggle -= ToggleMusic;
+        GameEvents.current.MusicToggleState(music.enabled);
     }
 }

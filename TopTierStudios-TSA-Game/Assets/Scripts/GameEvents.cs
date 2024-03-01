@@ -12,6 +12,9 @@ using UnityEngine;
 /// </summary>
 public class GameEvents : MonoBehaviour
 {
+    // Save music toggle state
+    public static bool musicToggleState = true;
+
     // Creates a static Singleton that can be accessed wherever the GameEvents class is
     public static GameEvents current;
 
@@ -80,5 +83,11 @@ public class GameEvents : MonoBehaviour
         Debug.Log("You won!");
         if (OnLevelWon != null)
             OnLevelWon();
+    }
+
+    public event Action<bool> OnMusicToggleState;
+    public void MusicToggleState(bool state)
+    {
+        musicToggleState = state;
     }
 }
