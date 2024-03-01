@@ -22,6 +22,4 @@ public class GoalPoint : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
-
-    // Comment of hope
 }

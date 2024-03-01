@@ -23,6 +23,12 @@ public class ButtonMethods : MonoBehaviour
         SceneManager.LoadScene("Level 1");
     }
 
+    // Loads the exposition
+    public void LoadExposition()
+    {
+        SceneManager.LoadScene("Exposition");
+    }
+
     // Loads the how to play scene
     public void HowToPlay()
     {
