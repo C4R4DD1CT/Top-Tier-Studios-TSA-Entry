@@ -179,8 +179,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter a code by pressing on the buttons above. They will change colors
+  m_text: 'Enter a code by pressing on the buttons above. They will change colors
     as you click them. Find the correct color combo.
+
+
+    Hint: The code contains
+    1 red, 2 yellow, and 1 blue'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -360,7 +364,6 @@ GameObject:
   m_Component:
   - component: {fileID: 914052999127110280}
   - component: {fileID: 914052999127110281}
-  - component: {fileID: 914052999127110286}
   m_Layer: 0
   m_Name: KeyCodes
   m_TagString: Untagged
@@ -432,28 +435,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!102 &914052999127110286
-TextMesh:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914052999127110287}
-  m_Text: 
-  m_OffsetZ: 0
-  m_CharacterSize: 1
-  m_LineSpacing: 1
-  m_Anchor: 0
-  m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 0
-  m_FontStyle: 0
-  m_RichText: 1
-  m_Font: {fileID: 0}
-  m_Color:
-    serializedVersion: 2
-    rgba: 4294967295
 --- !u!1 &914052999172088646
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,6 +666,7 @@ MonoBehaviour:
   - {fileID: 914053000186273315}
   gateDetector: {fileID: 0}
   text: {fileID: 914052998804486148}
+  hint: 'Hint: The code contains 1 red, 2 yellow, and 1 blue'
 --- !u!1 &914052999938907762
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +730,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e94c7625cd2e80d4e8fd19b24fc89d93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1103,7 +1085,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e94c7625cd2e80d4e8fd19b24fc89d93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

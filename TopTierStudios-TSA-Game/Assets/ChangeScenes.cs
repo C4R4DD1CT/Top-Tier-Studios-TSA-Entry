@@ -21,7 +21,12 @@ public class ChangeScenes : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1));
+            Invoke("ChangeScene", 1.5f);
         }
+    }
+
+    private void ChangeScene()
+    {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1));
     }
 }
