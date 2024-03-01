@@ -14,6 +14,6 @@ public class MediaPlayer2 : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        if (!GameEvents.musicToggleState) Destroy(transform.gameObject);
+        //if (!GameEvents.musicToggleState) Destroy(transform.gameObject);
     }
 }
