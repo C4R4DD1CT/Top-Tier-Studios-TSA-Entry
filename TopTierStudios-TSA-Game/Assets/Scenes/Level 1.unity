@@ -2101,6 +2101,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5414431567302431033, guid: 8500faf7e07789241b7047253ae1576d, type: 3}
+      propertyPath: range
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5414431567302431033, guid: 8500faf7e07789241b7047253ae1576d, type: 3}
       propertyPath: picker
       value: 
       objectReference: {fileID: 1050673530}
