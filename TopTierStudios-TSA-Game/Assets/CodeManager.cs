@@ -9,7 +9,7 @@ public class CodeManager : MonoBehaviour
     [SerializeField] CodeState[] codeStates;
     [SerializeField] GateDetector gateDetector;
     [SerializeField] TextMeshProUGUI text;
-    
+    [SerializeField] string hint = "Hint: The code contains 1 blue, 2 yellows, and 1 red";
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +29,15 @@ public class CodeManager : MonoBehaviour
         {
             if (codeStates[i].current != passcode[i])
             {
-                text.text = "The color sequence is wrong! Try to find the correct combo!";
+                text.text = "The color sequence is wrong! Try to find the correct combo! " + hint;
+                print(text.text);
                 text.color = Color.red;
                 return;
             }
         }
         gateDetector.solvedCode = true;
         print("Correct Code, Open thy gate");
-        text.text = "The color sequence is correct! The gate shall open once the requirements are met!";
+        text.text = "The color sequence is correct! The gate shall open once the requirements are met! \n" + hint;
         text.color = Color.green;
         
     }

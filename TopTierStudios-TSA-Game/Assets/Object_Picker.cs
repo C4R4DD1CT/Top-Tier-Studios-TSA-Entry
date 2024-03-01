@@ -13,6 +13,7 @@ public class Object_Picker : MonoBehaviour
     [SerializeField] float object_pickup_distance = 7.0f;
     [SerializeField] Transform camera;
     [SerializeField] Text key_frag_text;
+    [SerializeField] string objective = "Objective: Find all the keys, and enter the right passcode to open the gate.\n";
     void Start()
     {
         
@@ -33,11 +34,11 @@ public class Object_Picker : MonoBehaviour
                     Destroy(ray.transform.gameObject);
                     if (current_keys < MAX_KEYS)
                     {
-                        key_frag_text.text = "key frags: " + current_keys + " fragments";
+                        key_frag_text.text = objective + "\nkeys found: " + current_keys + " fragments";
                     }
                     else
                     {
-                        key_frag_text.text = "YOU FOUND THE KEY FRAGMENTS, GO TO THE GATE!";
+                        key_frag_text.text = objective + "YOU FOUND ALL " + MAX_KEYS +" KEYS, GO TO THE GATE'S PADLOCK TO INSERT KEY!";
                     }
                 }
 
