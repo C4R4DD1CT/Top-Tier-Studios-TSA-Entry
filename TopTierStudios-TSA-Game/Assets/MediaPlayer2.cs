@@ -9,9 +9,11 @@ using UnityEngine;
 /// </summary>
 public class MediaPlayer2 : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Awake is called when the script instance is being loaded
     void Awake()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         if (!GameEvents.musicToggleState) Destroy(transform.gameObject);
     }
 }

@@ -166,7 +166,7 @@ Transform:
   - {fileID: 2130396965}
   - {fileID: 505718865}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208036266
 GameObject:
@@ -2078,7 +2078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3474348468557245528, guid: dcfdc2e6107db0549a86e7444f99c537, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3474348468557245528, guid: dcfdc2e6107db0549a86e7444f99c537, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2551,6 +2551,14 @@ PrefabInstance:
     - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
       propertyPath: sensY
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
+      propertyPath: zoomTime
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
+      propertyPath: specialFOV
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4156732067645132745, guid: ba18998787c4ac74690a8c630d0e7501, type: 3}
       propertyPath: orientation
